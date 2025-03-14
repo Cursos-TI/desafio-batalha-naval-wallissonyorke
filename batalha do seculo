@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+#define TAMANHO_TABULEIRO 10 // Definindo o tamanho do tabuleiro, que será 10x10
+#define TAMANHO_NAVIO 3      // Tamanho fixo dos navios, que será 3 posições
+
+int main() {
+    // Criando o tabuleiro 10x10 e inicializando todas as posições com 0 (água)
+    int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO] = {0}; 
+
+    // Definindo onde os navios vão começar no tabuleiro (coordenadas fixas)
+    // Navio horizontal
+    int linhaNavioHorizontal = 2, colunaNavioHorizontal = 4;
+    // Navio vertical
+    int linhaNavioVertical = 5, colunaNavioVertical = 6;
+
+    // Posicionando o navio horizontal
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        tabuleiro[linhaNavioHorizontal][colunaNavioHorizontal + i] = 3; 
+        // O "3" representa o navio no tabuleiro
+    }
+
+    // Posicionando o navio vertical
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        tabuleiro[linhaNavioVertical + i][colunaNavioVertical] = 3; 
+        // O "3" também representa o navio no tabuleiro
+    }
+
+    // Agora vamos imprimir o tabuleiro na tela
+    // O tabuleiro será impresso com 0 para água e 3 para os navios
+    printf("Tabuleiro com os navios posicionados:\n");
+
+    // Esse loop vai imprimir o tabuleiro linha por linha
+    for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
+        for (int j = 0; j < TAMANHO_TABULEIRO; j++) {
+            printf("%d ", tabuleiro[i][j]); // Imprime cada valor no tabuleiro
+        }
+        printf("\n"); // Pula para a próxima linha para imprimir o tabuleiro corretamente
+    }
+
+    return 0;
+}
